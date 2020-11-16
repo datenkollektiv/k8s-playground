@@ -1,0 +1,18 @@
+apiVersion: v1
+clusters:
+- cluster:
+    insecure-skip-tls-verify: true
+    server: http://localhost:8080
+  name: playground
+contexts:
+- context:
+    cluster: playground
+    namespace: default
+    user: developer
+  name: sandbox
+current-context: sandbox
+kind: Config
+preferences: {}
+users:
+- name: developer
+  user: {}
