@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: requestbin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: requestbin
+  template:
+    metadata:
+      labels:
+        app: requestbin
+    spec:
+      containers:
+      - image: datenkollektiv/requestbin:latest
+        imagePullPolicy: IfNotPresent
+        name: requestbin
+        ports:
+        - containerPort: 80
